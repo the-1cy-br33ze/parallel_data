@@ -1,0 +1,27 @@
+﻿<Window x:Class="laba_1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:laba_1"
+        mc:Ignorable="d"
+        Title="Кабитов Дмитрий Анатольевич 3-47" Height="450" Width="800">
+    <Grid>
+        <Label x:Name="l1" Content="Верхняя граница" HorizontalAlignment="Left" Height="69" Margin="47,40,0,0" VerticalAlignment="Top" Width="213"/>
+        <TextBox x:Name="up_integral" HorizontalAlignment="Left" Margin="302,52,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="130" Height="45"/>
+        <Label x:Name="l2" Content="Нижняя граница" HorizontalAlignment="Left" Height="70" Margin="47,0,0,0" VerticalAlignment="Center" Width="213"/>
+        <TextBox x:Name="down_integral" HorizontalAlignment="Left" Margin="302,0,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="130" Height="44"/>
+        <Label x:Name="l3" Content="Кол-во разбиений" HorizontalAlignment="Left" Height="70" Margin="47,323,0,0" VerticalAlignment="Top" Width="213"/>
+        <TextBox x:Name="all_del" HorizontalAlignment="Left" Margin="302,336,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="130" Height="44"/>
+        <Label x:Name="l4" Content="Результат" HorizontalAlignment="Left" Height="45" Margin="545,278,0,0" VerticalAlignment="Top" Width="217" Foreground="#FF424242" Background="#FFE6E4E4"/>
+        <Label x:Name="l_result" Content="0" HorizontalAlignment="Left" Height="42" Margin="545,323,0,0" VerticalAlignment="Top" Width="217" Foreground="#FF424242" Background="#FFE6E4E4"/>
+        <ComboBox x:Name="variants" HorizontalAlignment="Left" Height="47" Margin="545,42,0,0" VerticalAlignment="Top" Width="217">
+        <ComboBoxItem Content="Метод Симпсона(обычный)"/>
+        <ComboBoxItem Content="Метод трапеций(обычный)"/>
+        <ComboBoxItem Content="Метод Симпсона(параллель)"/>
+        <ComboBoxItem Content="Метод трапеций(параллель)"/>
+        </ComboBox>
+        <Button x:Name="b_result" Content="Расчитать" HorizontalAlignment="Left" Height="65" Margin="545,152,0,0" VerticalAlignment="Top" Width="217" Click="b_result_Click"/>
+
+    </Grid>
+</Window>
