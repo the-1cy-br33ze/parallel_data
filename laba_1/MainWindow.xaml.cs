@@ -24,14 +24,16 @@ namespace laba_1
             _calculator = new Calc_Formul();
         }
 
-        private void b_result_Click(object sender, RoutedEventArgs e)
+        public void b_result_Click(object sender, RoutedEventArgs e)
         {
             try
-            {
+            {   
                 float Down_gran = float.Parse(down_integral.Text);
                 float Up_gran = float.Parse(up_integral.Text);
                 int all_de = int.Parse(all_del.Text);
                 int variant = variants.SelectedIndex;
+                if (variant <= 0) { throw new ArgumentException("Указано некорректное n"); }
+                if (Up_gran< Down_gran) { float middle= Up_gran; Up_gran = Down_gran; Down_gran = middle; }
 
                 Func<double, double> Function = x => 322 * x - Math.Log(11 * x) - 2;
 

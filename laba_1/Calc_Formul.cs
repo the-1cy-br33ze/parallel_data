@@ -6,25 +6,26 @@ using System.Threading.Tasks;
 
 namespace laba_1
 {
-    internal class Calc_Formul(): ICalculator
+    public class Calc_Formul(): ICalculator
     {
         public double Calculate(Func<double, double> function, double Down_gran, double Up_gran, int all_de, int variant)
         {
 
             switch (variant){
-                case 0: return SimpsonMethod(function, Down_gran, Up_gran, all_de); break;
-                case 1: return MidpointRectangleMethod(function, Down_gran, Up_gran, all_de);break;
-                case 2: return SimpsonMethod_Parallel(function, Down_gran, Up_gran, all_de); break;
-                case 3: return MidpointRectangleMethod_Parallel(function, Down_gran, Up_gran, all_de); break;
-                default: return 0;
+                case 0: return SimpsonMethod(function, Down_gran, Up_gran, all_de);
+                case 1: return MidpointRectangleMethod(function, Down_gran, Up_gran, all_de);
+                case 2: return SimpsonMethod_Parallel(function, Down_gran, Up_gran, all_de);
+                case 3: return MidpointRectangleMethod_Parallel(function, Down_gran, Up_gran, all_de);
+                default:  throw new ArgumentException("Выбран неверный вариант расчета"); //Здесь меняем на return 0
             }
             
         }
 
         public double SimpsonMethod(Func<double, double> f, double a, double b, int n)
         {
-
-            double h = (b - a) / n;
+            if (n <= 0){throw new ArgumentException("Указано некорректное значение n");} 
+            // исключение бесполезно для main но для тестов пусть будет
+                double h = (b - a) / n;
             double sum = f(a) + f(b);
 
             for (int i = 1; i < n; i += 2)
@@ -44,7 +45,8 @@ namespace laba_1
 
         public double MidpointRectangleMethod(Func<double, double> f, double a, double b, int n)
         {
-
+            if (b < a) { throw new ArgumentException("Указано некорректные границы"); }
+            //бесполезно для Main, но для тестов пусть будет
             double h = (b - a) / n;
             double sum = 0.0;
 
